@@ -6,8 +6,7 @@ from Crypto.Util.Padding import unpad, pad
 
 class Cipher:
     def __init__(self, key: str):
-        self.key = key.encode()[:8]
-        self.cipher = DES.new(key, DES.MODE_ECB)
+        self.cipher = DES.new(key.encode()[:8], DES.MODE_ECB)
 
     def decrypt(self, ciphertext):
         encrypted_data = base64.b64decode(ciphertext)
